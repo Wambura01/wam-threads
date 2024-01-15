@@ -40,7 +40,14 @@ export async function updateUser({
   try {
     await User.findOneAndUpdate(
       { id: userId },
-      { username: username.toLowerCase(), name, bio, image, path },
+      {
+        username: username.toLowerCase(),
+        name,
+        bio,
+        image,
+        path,
+        onboarded: true,
+      },
       { upsert: true }
     );
 
